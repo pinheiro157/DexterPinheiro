@@ -1,200 +1,216 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
-
-:root {
-    --laranja-claro: #FF862A;
-    --alto-contraste-fundo: #000000;
-    --alto-contraste-texto: #ffffff;
-    --alto-contraste-link: #ffd700;
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background-color: #0d0d0d; /* Cor escura, quase preta */
+    color: #e0e0e0; /* Cinza claro para o texto */
+    line-height: 1.6;
+    overflow-x: hidden; /* Para evitar scroll horizontal indesejado das animações */
 }
 
-body {
-    font-size: 1rem;
-    font-family: 'Montserrat';
+/* Cores da série: Vermelho escuro, cinza escuro, preto, detalhes em branco/prata */
+:root {
+    --primary-red: #8b0000; /* Vermelho sangue escuro */
+    --secondary-gray: #2c2c2c; /* Cinza bem escuro */
+    --text-light: #e0e0e0;
+    --text-dark: #0d0d0d;
 }
 
 header {
-    background-color: #ffffff;
+    background-color: var(--primary-red);
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+    border-bottom: 5px solid var(--secondary-gray);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+header h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #f0f0f0;
+}
 
 section {
-    padding-bottom: 5rem;
-}
-
-
-.nav-link {
-    color: #CB6D43;
-    font-weight: 600;
-}
-
-.inicio-fundo {
-    /* aula 3 */
-    background-image: url('img/4965007.jpg');
-    /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-position: right;
-    border-radius: 80px;
-    width: 100%;
-    height: 606px;
-    padding: 40px;
-    margin: 0 auto;
-}
-
-/* posicionamento para a imagem à direita */
-.img-inicio {
-    position: absolute;
-    right: 0;
-    top: 18rem;
-    width: 45rem;
-    height: auto;
-}
-
-
-.esquerda-conteudo {
+    padding: 4em 5%;
+    margin-bottom: 2em;
+    background-color: var(--secondary-gray);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+    flex-wrap: wrap; /* Para responsividade */
 }
 
-
-.botao-inicio {
-    background-color: var(--laranja-claro);
-    border-radius: 30px;
-    border: none;
-    width: 14em;
-    height: 3em;
-    align-content: center;
-
+section:nth-of-type(even) {
+    background-color: #1a1a1a; /* Um tom ligeiramente diferente */
+    flex-direction: row-reverse; /* Inverte a ordem da imagem e texto em seções alternadas */
 }
 
-.display-4 {
-    text-shadow: -5px 5px var(--laranja-claro);
+section h2, section h3 {
+    color: var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    font-size: 2em;
 }
 
-
-#tropicalia {
-    position: relative;
-    padding-top: 5rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    background: url('img/flor.png') top right no-repeat,
-        url('img/flor-esquerda.png') bottom left no-repeat;
-    background-size: 180px 180px;
-    /* Ajuste o tamanho conforme necessário */
+section h3 {
+    font-size: 1.8em;
 }
 
-#tropicalia .container {
+section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.content {
+    flex: 2;
+    min-width: 300px; /* Garante que o texto não fique muito espremido */
+}
+
+.image-container {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    border: 3px solid var(--primary-red);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 2em 0;
+    background-color: var(--primary-red);
+    color: white;
+    border-top: 5px solid var(--secondary-gray);
+    margin-top: 3em;
+}
+
+/* Animações */
+
+/* Fade In para elementos iniciais */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Parallax para a seção de introdução */
+.parallax-section {
+    background-image: url('placeholder-intro.jpg'); /* Substitua por uma imagem de Dexter */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 1;
-    /* Garante que o conteúdo fica acima das imagens do background */
+    text-align: center;
+    animation: panBackground 20s infinite alternate linear; /* Animação suave de movimento de fundo */
 }
 
-
-h2 {
-    font-family: 'Lemon', serif;
-    font-size: 2.5em;
-    font-style: normal;
-    color: var(--laranja-claro);
+@keyframes panBackground {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
-#galeria {
-    background-color: #FAF4F4;
-
-}
-
-.fundo-galeria {
-    background: url('img/flor-bottom-direita.png') bottom right no-repeat;
-    background-size: 180px 180px;
-}
-
-#contato {
-    background-image: url('img/4965007.jpg');
-    background-size: cover;
-    padding: 4rem 0;
-    /* Espaçamento interno para a seção de contato */
-
-}
-
-.formulario {
-    background-color: #ffffff;
-    padding: 2rem;
-    /* Espaçamento interno dentro do formulário */
+.parallax-section .content {
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para o texto */
+    padding: 2em;
     border-radius: 10px;
-    /* Borda arredondada para o formulário */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Sombra suave para destacar o formulário */
-    font-weight: bold;
+    max-width: 800px;
 }
 
-.formulario button {
-    background-color: #CB6D43;
-    border: none;
-    font-weight: bold;
+.parallax-section h2 {
+    font-size: 3em;
+    border-bottom: none;
+    color: white;
 }
 
-.form-control {
-    background-color: #F1EDEF;
-}
-.menu-acessibilidade{
-    position: fixed;
-    top:2rem;
-    right:20px;
-    z-index: 1000;
+/* Animação Slide In From Left */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s ease-out;
 }
 
-.rotacao-botao{
-    transform: rotate(-90deg);
-    transform-origin: right center;
+/* Animação Slide In From Right */
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s ease-out;
 }
 
-.opcoes-acessibilidade{
-    margin-top:10px;
-    display: flex;
-    flex-direction: column;
+/* Animação Zoom In */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s ease-out;
 }
 
-.opcoes-acessibilidade button{
-    margin-bottom: 5px;
-}
-.apresenta-lista{
-    display: none;
-}
-
-.alto-contraste{
-    background-color: var(--alto-contraste-fundo);
-    color: var(--alto-contraste-texto);
+/* Animação Fade In Up */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
 }
 
-.alto-contraste header,
-.alto-contraste footer,
-.alto-contraste .formulario{
-    background-color: var(--alto-contraste-fundo);
-    color: var(--alto-contraste-texto);
+/* Quando as animações devem ser ativadas (via JavaScript) */
+.active.slide-in-left,
+.active.slide-in-right,
+.active.zoom-in,
+.active.fade-in-up {
+    opacity: 1;
+    transform: none;
 }
 
-.alto-contraste .nav-link{
-    color: var(--alto-contraste-link);
-}
-
-.alto-contraste .botao-inicio,
-.alto-contraste .formulario button,
-.alto-contraste .btn-primary{
-    background-color: var(--alto-contraste-link);
-    color: var(--alto-contraste-fundo)
-}
-
-.alto-contraste #tropicalia {
-    background: none;
-}
-
-.alto-contraste #galeria {
-    background-color: var(--alto-contraste-fundo);
-}
-.alto-contraste .fundo-galeria {
-    background: none;
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    section {
+        padding: 2em 3%;
+        flex-direction: column; /* Em telas menores, os itens empilham */
+    }
+    section:nth-of-type(even) {
+        flex-direction: column;
+    }
+    .content, .image-container {
+        min-width: unset;
+        width: 100%;
+    }
+    .parallax-section h2 {
+        font-size: 2em;
+    }
 }
